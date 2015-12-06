@@ -250,6 +250,7 @@ static void updatewmhints(Client *c);
 static void view(const Arg *arg);
 static void incr_vol(const Arg *arg);
 static void decr_vol(const Arg *arg);
+static void mute_vol(const Arg *arg);
 static Client *wintoclient(Window w);
 static Monitor *wintomon(Window w);
 static int xerror(Display *dpy, XErrorEvent *ee);
@@ -2064,12 +2065,21 @@ incr_vol(const Arg *arg) {
       fprintf (stderr, "Error issuing command: %s\n", command);
 }
 
-void decr_vol(const Arg *arg) {
+void 
+decr_vol(const Arg *arg) {
    (void)arg;
    const char *command = "amixer -D pulse sset Master 5%-";
    FILE *volume = popen(command, "r");
-   pclose(volume);
    if (pclose(volume) < 0) 
+      fprintf (stderr, "Error issuing command: %s\n", command);
+}
+
+void 
+mute_vol(const Arg *arg) {
+   (void)arg;
+   const char *command = "amixer -D pulse sset Master 0%";
+   FILE *volume = popen(command, "r");
+   if (pclose(volume) < 0)
       fprintf (stderr, "Error issuing command: %s\n", command);
 }
 

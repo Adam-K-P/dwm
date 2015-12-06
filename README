@@ -4,6 +4,6 @@ I plan on adding functionality to this periodically.
 
 So far I have added the following functionalities:
 
--Ability to increase and decrease the volume
+-Ability to increase, decrease, and mute the volume
 
-   *Done through the incr_vol and decr_vol functions
+   *Done through the incr_vol, decr_vol, and mute_vol functions
