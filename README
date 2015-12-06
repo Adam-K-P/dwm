@@ -1,0 +1,9 @@
+This is my own personal fork of dwm.
+
+I plan on adding functionality to this periodically.
+
+So far I have added the following functionalities:
+
+-Ability to increase and decrease the volume
+
+   *Done through the incr_vol and decr_vol functions
